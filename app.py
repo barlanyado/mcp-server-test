@@ -1,4 +1,5 @@
- # markdown_server.py
+# markdown_server.py
+import argparse
 from mcp.server.fastmcp import FastMCP
 
 # Create an MCP server
@@ -65,11 +66,17 @@ def format_markdown(text: str, headings: bool = True, bold: bool = True,
     return '\n'.join(result)
 
 if __name__ == "__main__":
-    mcp.run()
-
-
-
-
-
-
-
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description="Markdown Formatter MCP Server")
+    parser.add_argument("--host", default="0.0.0.0", help="Host to bind the server to")
+    parser.add_argument("--port", type=int, default=3000, help="Port to bind the server to")
+    parser.add_argument("--transport", default="stdio", choices=["stdio", "sse"], 
+                        help="Transport type (stdio or sse)")
+    
+    args = parser.parse_args()
+    
+    # Run the server with the specified options
+    if args.transport == "sse":
+        mcp.run(transport="sse", host=args.host, port=args.port)
+    else:
+        mcp.run(transport="stdio")
