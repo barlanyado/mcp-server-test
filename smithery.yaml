@@ -1,6 +1,6 @@
 version: 1
-name: alpaca-mcp
-entrypoint: python server.py
+name: mcp-server-test
+entrypoint: mcp dev app.py
 dependencies:
   - python
   - pip
