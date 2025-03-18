@@ -1,0 +1,6 @@
+version: 1
+name: alpaca-mcp
+entrypoint: python server.py
+dependencies:
+  - python
+  - pip
