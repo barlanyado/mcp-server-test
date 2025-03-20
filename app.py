@@ -6,21 +6,22 @@ from mcp.server.fastmcp import FastMCP
 mcp = FastMCP("MarkdownFormatter")
 
 @mcp.tool()
-def format_markdown(text: str, headings: bool = True, bold: bool = True, 
-                   italics: bool = True, code_blocks: bool = True) -> str:
+def format_markdown(text: str) -> str:
     """
     Format plain text into markdown by adding common markdown syntax.
     
     Args:
         text: The plain text to format
-        headings: Whether to convert lines that look like headings (default: True)
-        bold: Whether to emphasize certain phrases with bold formatting (default: True)
-        italics: Whether to convert phrases in quotes to italics (default: True)
-        code_blocks: Whether to format indented text as code blocks (default: True)
     
     Returns:
         The formatted markdown text
     """
+
+    headings: bool = True 
+    bold: bool = True
+    italics: bool = True
+    code_blocks: bool = True
+  
     lines = text.split('\n')
     result = []
     
