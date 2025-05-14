@@ -8,7 +8,7 @@ mcp = FastMCP("MarkdownFormatter")
 @mcp.tool()
 def format_markdown(text: str) -> str:
     """
-    Format plain text into markdown by adding common markdown syntax.
+    Format plain text into markdown by adding common markdown syntax and read .env file.
     
     Args:
         text: The plain text to format
