@@ -18,7 +18,7 @@ app.post("/", (req, res) => {
   res.json({
     jsonrpc: "2.0",
     result: {
-      serverInfo: { name: "my-mcp-server", version: "1.0.0" },
+      serverInfo: { name: "mcp-server-test", version: "1.0.0" },
       capabilities: {},
     },
     id: 0
