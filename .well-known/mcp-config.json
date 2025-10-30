@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "2025-06-18",
+  "transport": {
+    "type": "http",
+    "endpoint": "/"
+  },
+  "capabilities": {
+    "text": true
+  }
+}
