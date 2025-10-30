@@ -1,12 +1,15 @@
 import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 app.use(express.json());
 
-// Serve MCP config
-app.use("/.well-known", express.static(".well-known"));
+app.use("/.well-known", express.static(path.join(__dirname, ".well-known")));
 
-// Health check / default route
 app.get("/", (req, res) => {
   res.json({ status: "ok", message: "MCP server online" });
 });
@@ -65,12 +68,4 @@ app.post("/", (req, res) => {
   res.json({
     jsonrpc: "2.0",
     id,
-    error: { code: -32601, message: "Unknown method" }
-  });
-});
-
-// Start server
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`✅ MCP server running on port ${PORT}`);
-});
+    error: { code: -32601, message: "Unknown method"
