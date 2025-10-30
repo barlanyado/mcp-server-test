@@ -1,5 +1,5 @@
 {
-  "name": "my-mcp-server",
+  "name": "mcp-server-test",
   "version": "1.0.0",
   "description": "A simple MCP server for Smithery deployment",
   "main": "index.js",
